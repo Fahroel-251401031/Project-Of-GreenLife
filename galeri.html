@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Galeri kegiatan dan statistik dampak komunitas lingkungan GreenLife." />
+    <title>Galeri dan Dampak | GreenLife</title>
+    <!-- Tailwind CSS (CDN) + konfigurasi warna GreenLife -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { hijau: '#14532d', gelap: '#0f3d2e', daun: '#dcf27a', krem: '#f4f8ef' },
+            fontFamily: { sans: ['DM Sans', 'sans-serif'] },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <!-- CSS buatan sendiri (hero, modal, efek tombol) -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="font-sans text-gray-800 bg-white">
+    <!-- Fahroel : Navbar responsif (logo, menu, tombol hamburger) -->
+    <header class="bg-white shadow sticky top-0 z-40">
+      <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between relative" aria-label="Navigasi utama">
+        <a href="index.html" class="flex items-center gap-2 text-xl font-bold text-hijau">
+          <img src="assets/images/LOGO.png" alt="Logo GreenLife" class="h-9 w-9" />
+          green<span class="font-normal">life</span>
+        </a>
+        <button id="menuBtn" type="button" class="md:hidden text-3xl text-hijau" aria-label="Buka menu" aria-expanded="false" aria-controls="menu">☰</button>
+        <ul id="menu" class="hidden md:flex absolute md:static top-full left-0 w-full md:w-auto flex-col md:flex-row md:items-center gap-1 md:gap-6 bg-white p-4 md:p-0 shadow md:shadow-none text-sm font-medium text-gray-700">
+          <li><a href="index.html" class="block py-2 hover:text-green-600">Beranda</a></li>
+          <li><a href="index.html#tentang" class="block py-2 hover:text-green-600">Tentang</a></li>
+          <li><a href="program.html#program" class="block py-2 hover:text-green-600">Program</a></li>
+          <li><a href="program.html#kegiatan" class="block py-2 hover:text-green-600">Kegiatan</a></li>
+          <li><a href="galeri.html#galeri" class="block py-2 text-hijau font-bold">Galeri</a></li>
+          <li><a href="galeri.html#statistik" class="block py-2 text-hijau font-bold">Dampak</a></li>
+          <li><a href="gabung.html#faq" class="block py-2 hover:text-green-600">FAQ</a></li>
+          <li><a href="gabung.html#relawan" class="inline-block bg-hijau text-white px-4 py-2 rounded hover:bg-gelap">Gabung</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="bg-gelap text-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+          <h1 class="text-3xl md:text-4xl font-bold">Galeri dan Dampak</h1>
+          <p class="mt-2 text-green-100 max-w-2xl">Cuplikan kegiatan GreenLife dan capaian yang lahir dari para relawan.</p>
+        </div>
+      </section>
+
+      <!-- Zwinly : Galeri foto + modal gambar (js/galeri.js) -->
+      <section id="galeri" class="py-16 bg-krem">
+        <div class="max-w-6xl mx-auto px-4">
+          <h2 class="text-3xl font-bold text-gelap">Galeri Kegiatan</h2>
+          <p class="mt-2 text-gray-600">Klik foto untuk memperbesar.</p>
+          <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
+          <button type="button" class="galeri-item group relative overflow-hidden rounded-lg" data-caption="Satu Bibit, Seribu Harapan" aria-label="Perbesar gambar Satu Bibit, Seribu Harapan">
+            <img src="assets/images/satu-bibit.jpg" alt="Satu Bibit, Seribu Harapan" class="w-full h-40 md:h-52 object-cover group-hover:scale-110 transition duration-300" loading="lazy" onerror="this.onerror = null; this.src = 'assets/images/fallback.svg';" />
+            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-white text-xs p-2 text-left">Satu Bibit, Seribu Harapan</span>
+          </button>
+          <button type="button" class="galeri-item group relative overflow-hidden rounded-lg" data-caption="Pilah Hari Ini" aria-label="Perbesar gambar Pilah Hari Ini">
+            <img src="assets/images/pilah-hari-ini.jpg" alt="Pilah Hari Ini" class="w-full h-40 md:h-52 object-cover group-hover:scale-110 transition duration-300" loading="lazy" onerror="this.onerror = null; this.src = 'assets/images/fallback.svg';" />
+            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-white text-xs p-2 text-left">Pilah Hari Ini</span>
+          </button>
+          <button type="button" class="galeri-item group relative overflow-hidden rounded-lg" data-caption="Kelas Hidup Minim Sampah" aria-label="Perbesar gambar Kelas Hidup Minim Sampah">
+            <img src="assets/images/kelas-hidup-minim.jpg" alt="Kelas Hidup Minim Sampah" class="w-full h-40 md:h-52 object-cover group-hover:scale-110 transition duration-300" loading="lazy" onerror="this.onerror = null; this.src = 'assets/images/fallback.svg';" />
+            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-white text-xs p-2 text-left">Kelas Hidup Minim Sampah</span>
+          </button>
+          <button type="button" class="galeri-item group relative overflow-hidden rounded-lg" data-caption="Hijaukan Sekolah Kita" aria-label="Perbesar gambar Hijaukan Sekolah Kita">
+            <img src="assets/images/hijaukan-sekolah.jpg" alt="Hijaukan Sekolah Kita" class="w-full h-40 md:h-52 object-cover group-hover:scale-110 transition duration-300" loading="lazy" onerror="this.onerror = null; this.src = 'assets/images/fallback.svg';" />
+            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-white text-xs p-2 text-left">Hijaukan Sekolah Kita</span>
+          </button>
+          <button type="button" class="galeri-item group relative overflow-hidden rounded-lg" data-caption="Bersih Sungai Deli" aria-label="Perbesar gambar Bersih Sungai Deli">
+            <img src="assets/images/bersih-sungai-deli.jpg" alt="Bersih Sungai Deli" class="w-full h-40 md:h-52 object-cover group-hover:scale-110 transition duration-300" loading="lazy" onerror="this.onerror = null; this.src = 'assets/images/fallback.svg';" />
+            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-white text-xs p-2 text-left">Bersih Sungai Deli</span>
+          </button>
+          <button type="button" class="galeri-item group relative overflow-hidden rounded-lg" data-caption="Setor Sampah, Tebar Manfaat" aria-label="Perbesar gambar Setor Sampah, Tebar Manfaat">
+            <img src="assets/images/setor-sampah.jpg" alt="Setor Sampah, Tebar Manfaat" class="w-full h-40 md:h-52 object-cover group-hover:scale-110 transition duration-300" loading="lazy" onerror="this.onerror = null; this.src = 'assets/images/fallback.svg';" />
+            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-white text-xs p-2 text-left">Setor Sampah, Tebar Manfaat</span>
+          </button>
+          <button type="button" class="galeri-item group relative overflow-hidden rounded-lg" data-caption="Taman Tanpa Sampah" aria-label="Perbesar gambar Taman Tanpa Sampah">
+            <img src="assets/images/taman-tanpa-sampah.jpg" alt="Taman Tanpa Sampah" class="w-full h-40 md:h-52 object-cover group-hover:scale-110 transition duration-300" loading="lazy" onerror="this.onerror = null; this.src = 'assets/images/fallback.svg';" />
+            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-white text-xs p-2 text-left">Taman Tanpa Sampah</span>
+          </button>
+          <button type="button" class="galeri-item group relative overflow-hidden rounded-lg" data-caption="Workshop Kompos Rumah" aria-label="Perbesar gambar Workshop Kompos Rumah">
+            <img src="assets/images/workshop-kompos-rumah.jpg" alt="Workshop Kompos Rumah" class="w-full h-40 md:h-52 object-cover group-hover:scale-110 transition duration-300" loading="lazy" onerror="this.onerror = null; this.src = 'assets/images/fallback.svg';" />
+            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-white text-xs p-2 text-left">Workshop Kompos Rumah</span>
+          </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Zwinly : Modal untuk melihat gambar lebih besar -->
+      <div id="modalGambar" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Pratinjau foto">
+        <div class="relative max-w-3xl w-full">
+          <button id="tutupModal" type="button" class="absolute -top-3 -right-3 bg-white text-gelap w-9 h-9 rounded-full font-bold shadow" aria-label="Tutup foto">✕</button>
+          <img id="gambarBesar" src="" alt="Foto galeri diperbesar" class="w-full max-h-[80vh] object-contain rounded-lg bg-black" />
+          <p id="keteranganGambar" class="text-white text-center mt-3"></p>
+        </div>
+      </div>
+
+      <!-- Zwinly : Statistik + animated counter (js/statistik.js) -->
+      <section id="statistik" class="py-16 bg-gelap text-white text-center">
+        <div class="max-w-6xl mx-auto px-4">
+          <h2 class="text-3xl font-bold">Setiap tindakan punya arti</h2>
+          <p class="mt-2 text-green-100">Capaian GreenLife berkat dukungan para relawan.</p>
+          <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <p class="text-4xl md:text-5xl font-bold text-daun"><span class="counter" data-target="1250">0</span>+</p>
+            <p class="mt-2 text-green-100">Pohon ditanam</p>
+          </div>
+          <div>
+            <p class="text-4xl md:text-5xl font-bold text-daun"><span class="counter" data-target="320">0</span>+</p>
+            <p class="mt-2 text-green-100">Relawan terlibat</p>
+          </div>
+          <div>
+            <p class="text-4xl md:text-5xl font-bold text-daun"><span class="counter" data-target="8">0</span></p>
+            <p class="mt-2 text-green-100">Kegiatan lingkungan</p>
+          </div>
+          <div>
+            <p class="text-4xl md:text-5xl font-bold text-daun"><span class="counter" data-target="850">0</span> kg</p>
+            <p class="mt-2 text-green-100">Sampah terkumpul</p>
+          </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Fahroel : Footer (kontak + media sosial) -->
+    <footer class="bg-gelap text-gray-200 mt-0">
+      <div class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <a href="index.html" class="flex items-center gap-2 text-xl font-bold text-white">
+            <img src="assets/images/LOGO.png" alt="Logo GreenLife" class="h-9 w-9" />
+            green<span class="font-normal">life</span>
+          </a>
+          <p class="mt-3 text-sm">Gerakan kecil untuk bumi yang lebih baik. Mari tumbuh dan bergerak bersama.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-white mb-3">Jelajahi</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html#tentang" class="hover:text-daun">Tentang</a></li>
+            <li><a href="program.html#program" class="hover:text-daun">Program Kami</a></li>
+            <li><a href="program.html#kegiatan" class="hover:text-daun">Kegiatan</a></li>
+            <li><a href="galeri.html#galeri" class="hover:text-daun">Galeri</a></li>
+            <li><a href="gabung.html#faq" class="hover:text-daun">FAQ</a></li>
+            <li><a href="gabung.html#relawan" class="hover:text-daun">Jadi Relawan</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-white mb-3">Hubungi</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="mailto:hello@greenlife.example" class="hover:text-daun">hello@greenlife.example</a></li>
+            <li><a href="https://wa.me/6281200000000" target="_blank" rel="noopener noreferrer" class="hover:text-daun">WhatsApp: 0812-0000-0000</a></li>
+            <li>Jl. Contoh No. 12, Medan, Sumatera Utara</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-white mb-3">Ikuti Gerakan</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="hover:text-daun">Instagram</a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="hover:text-daun">YouTube</a></li>
+            <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" class="hover:text-daun">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-green-800 text-center text-xs py-4 px-4">
+        © 2026 GreenLife. Dibuat oleh Kelompok Green Forest • Ilmu Komputer USU
+      </div>
+    </footer>
+    <!-- Fahroel : Tombol kembali ke atas (js/navbar.js) -->
+    <button id="topBtn" type="button" aria-label="Kembali ke atas" class="hidden fixed bottom-5 right-5 bg-hijau text-white w-11 h-11 rounded-full shadow-lg text-xl hover:bg-gelap">↑</button>
+    <!-- Fahroel : Menu hamburger + tombol kembali ke atas -->
+    <script src="js/navbar.js"></script>
+    <!-- Zwinly : Modal galeri -->
+    <script src="js/galeri.js"></script>
+    <!-- Zwinly : Animated counter statistik -->
+    <script src="js/statistik.js"></script>
+  </body>
+</html>
