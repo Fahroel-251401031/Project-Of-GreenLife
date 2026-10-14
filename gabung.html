@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Daftar sebagai relawan GreenLife dan baca pertanyaan yang sering ditanyakan." />
+    <title>Daftar Relawan dan FAQ | GreenLife</title>
+    <!-- Tailwind CSS (CDN) + konfigurasi warna GreenLife -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { hijau: '#14532d', gelap: '#0f3d2e', daun: '#dcf27a', krem: '#f4f8ef' },
+            fontFamily: { sans: ['DM Sans', 'sans-serif'] },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <!-- CSS buatan sendiri (hero, modal, efek tombol) -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="font-sans text-gray-800 bg-white">
+    <!-- Fahroel : Navbar responsif (logo, menu, tombol hamburger) -->
+    <header class="bg-white shadow sticky top-0 z-40">
+      <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between relative" aria-label="Navigasi utama">
+        <a href="index.html" class="flex items-center gap-2 text-xl font-bold text-hijau">
+          <img src="assets/images/LOGO.png" alt="Logo GreenLife" class="h-9 w-9" />
+          green<span class="font-normal">life</span>
+        </a>
+        <button id="menuBtn" type="button" class="md:hidden text-3xl text-hijau" aria-label="Buka menu" aria-expanded="false" aria-controls="menu">☰</button>
+        <ul id="menu" class="hidden md:flex absolute md:static top-full left-0 w-full md:w-auto flex-col md:flex-row md:items-center gap-1 md:gap-6 bg-white p-4 md:p-0 shadow md:shadow-none text-sm font-medium text-gray-700">
+          <li><a href="index.html" class="block py-2 hover:text-green-600">Beranda</a></li>
+          <li><a href="index.html#tentang" class="block py-2 hover:text-green-600">Tentang</a></li>
+          <li><a href="program.html#program" class="block py-2 hover:text-green-600">Program</a></li>
+          <li><a href="program.html#kegiatan" class="block py-2 hover:text-green-600">Kegiatan</a></li>
+          <li><a href="galeri.html#galeri" class="block py-2 hover:text-green-600">Galeri</a></li>
+          <li><a href="galeri.html#statistik" class="block py-2 hover:text-green-600">Dampak</a></li>
+          <li><a href="gabung.html#faq" class="block py-2 text-hijau font-bold">FAQ</a></li>
+          <li><a href="gabung.html#relawan" class="inline-block bg-hijau text-white px-4 py-2 rounded hover:bg-gelap">Gabung</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="bg-gelap text-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+          <h1 class="text-3xl md:text-4xl font-bold">Gabung Bersama GreenLife</h1>
+          <p class="mt-2 text-green-100 max-w-2xl">Daftar sebagai relawan dan temukan jawaban seputar kegiatan kami.</p>
+        </div>
+      </section>
+
+      <!-- Anasti : Form Daftar Relawan + validasi (js/relawan.js) -->
+      <section id="relawan" class="py-16">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+          <div>
+            <h2 class="text-3xl font-bold text-gelap">Bumi butuh aksimu.</h2>
+            <p class="mt-4 text-gray-600">Tak perlu jadi ahli untuk mulai peduli. Daftar sebagai relawan dan temukan kegiatan yang ingin kamu dukung.</p>
+            <ul class="mt-6 space-y-2 text-gray-600 list-disc list-inside">
+              <li>Gratis dan terbuka untuk umum</li>
+              <li>Pilih program sesuai minatmu</li>
+              <li>Info kegiatan dikirim lewat email</li>
+            </ul>
+          </div>
+          <div id="kartuForm" class="bg-white rounded-lg shadow-lg border p-6">
+            <h3 class="text-xl font-bold text-gelap">Daftar sebagai relawan</h3>
+            <form id="formRelawan" class="mt-4 space-y-4" novalidate>
+              <div>
+                <label for="nama" class="block text-sm font-semibold mb-1">Nama lengkap</label>
+                <input id="nama" name="nama" type="text" placeholder="Nama lengkap kamu" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-600" />
+                <p id="errNama" class="text-red-600 text-sm mt-1"></p>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="usia" class="block text-sm font-semibold mb-1">Usia</label>
+                  <input id="usia" name="usia" type="number" placeholder="Contoh: 20" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-600" />
+                  <p id="errUsia" class="text-red-600 text-sm mt-1"></p>
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-semibold mb-1">Email</label>
+                  <input id="email" name="email" type="email" placeholder="nama@email.com" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-600" />
+                  <p id="errEmail" class="text-red-600 text-sm mt-1"></p>
+                </div>
+              </div>
+              <div>
+                <label for="program" class="block text-sm font-semibold mb-1">Program yang diminati</label>
+                <select id="program" name="program" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-600">
+                  <option value="">Pilih program</option>
+                  <option>Penanaman Pohon</option>
+                  <option>Bank Sampah</option>
+                  <option>Clean Up Day</option>
+                  <option>Edukasi</option>
+                </select>
+                <p id="errProgram" class="text-red-600 text-sm mt-1"></p>
+              </div>
+              <button type="submit" class="w-full bg-hijau text-white font-bold py-3 rounded hover:bg-gelap">Kirim pendaftaran</button>
+              <p id="pesanForm" class="text-sm font-semibold" role="status"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lionel : FAQ accordion (js/faq.js) -->
+      <section id="faq" class="py-16 bg-krem">
+        <div class="max-w-3xl mx-auto px-4">
+          <h2 class="text-3xl font-bold text-gelap text-center">Pertanyaan yang sering ditanyakan</h2>
+          <div class="mt-8">
+            <div class="faq-item border-b border-green-200">
+              <button type="button" class="faq-tanya w-full flex justify-between items-center py-4 text-left font-semibold text-gelap">
+                <span>Apa itu GreenLife?</span><span class="faq-ikon text-2xl text-hijau">+</span>
+              </button>
+              <div class="faq-jawab hidden pb-4 text-gray-600"><p>GreenLife adalah komunitas lingkungan yang mengajak masyarakat terlibat dalam penghijauan, pengurangan sampah, kegiatan bersih lingkungan, dan edukasi.</p></div>
+            </div>
+            <div class="faq-item border-b border-green-200">
+              <button type="button" class="faq-tanya w-full flex justify-between items-center py-4 text-left font-semibold text-gelap">
+                <span>Bagaimana cara menjadi relawan?</span><span class="faq-ikon text-2xl text-hijau">+</span>
+              </button>
+              <div class="faq-jawab hidden pb-4 text-gray-600"><p>Klik tombol Join Our Movement, lalu isi formulir berisi nama, usia, email, dan program yang diminati. Informasi kegiatan akan dikirim lewat email.</p></div>
+            </div>
+            <div class="faq-item border-b border-green-200">
+              <button type="button" class="faq-tanya w-full flex justify-between items-center py-4 text-left font-semibold text-gelap">
+                <span>Apakah kegiatan GreenLife berbayar?</span><span class="faq-ikon text-2xl text-hijau">+</span>
+              </button>
+              <div class="faq-jawab hidden pb-4 text-gray-600"><p>Sebagian besar kegiatan gratis dan terbuka untuk umum. Untuk workshop tertentu mungkin ada biaya bahan, yang akan diinformasikan di keterangan kegiatan.</p></div>
+            </div>
+            <div class="faq-item border-b border-green-200">
+              <button type="button" class="faq-tanya w-full flex justify-between items-center py-4 text-left font-semibold text-gelap">
+                <span>Apa saja program yang bisa diikuti?</span><span class="faq-ikon text-2xl text-hijau">+</span>
+              </button>
+              <div class="faq-jawab hidden pb-4 text-gray-600"><p>Ada empat program utama: Penanaman Pohon, Bank Sampah, Clean Up Day, dan Edukasi.</p></div>
+            </div>
+            <div class="faq-item border-b border-green-200">
+              <button type="button" class="faq-tanya w-full flex justify-between items-center py-4 text-left font-semibold text-gelap">
+                <span>Bagaimana mengetahui jadwal kegiatan?</span><span class="faq-ikon text-2xl text-hijau">+</span>
+              </button>
+              <div class="faq-jawab hidden pb-4 text-gray-600"><p>Lihat bagian Kegiatan dan Jadwal Kegiatan di halaman Program, lalu gunakan filter kategori untuk menemukan kegiatan terdekat.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Fahroel : Footer (kontak + media sosial) -->
+    <footer class="bg-gelap text-gray-200 mt-0">
+      <div class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <a href="index.html" class="flex items-center gap-2 text-xl font-bold text-white">
+            <img src="assets/images/LOGO.png" alt="Logo GreenLife" class="h-9 w-9" />
+            green<span class="font-normal">life</span>
+          </a>
+          <p class="mt-3 text-sm">Gerakan kecil untuk bumi yang lebih baik. Mari tumbuh dan bergerak bersama.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-white mb-3">Jelajahi</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html#tentang" class="hover:text-daun">Tentang</a></li>
+            <li><a href="program.html#program" class="hover:text-daun">Program Kami</a></li>
+            <li><a href="program.html#kegiatan" class="hover:text-daun">Kegiatan</a></li>
+            <li><a href="galeri.html#galeri" class="hover:text-daun">Galeri</a></li>
+            <li><a href="gabung.html#faq" class="hover:text-daun">FAQ</a></li>
+            <li><a href="gabung.html#relawan" class="hover:text-daun">Jadi Relawan</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-white mb-3">Hubungi</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="mailto:hello@greenlife.example" class="hover:text-daun">hello@greenlife.example</a></li>
+            <li><a href="https://wa.me/6281200000000" target="_blank" rel="noopener noreferrer" class="hover:text-daun">WhatsApp: 0812-0000-0000</a></li>
+            <li>Jl. Contoh No. 12, Medan, Sumatera Utara</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-white mb-3">Ikuti Gerakan</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="hover:text-daun">Instagram</a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="hover:text-daun">YouTube</a></li>
+            <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" class="hover:text-daun">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-green-800 text-center text-xs py-4 px-4">
+        © 2026 GreenLife. Dibuat oleh Kelompok Green Forest • Ilmu Komputer USU
+      </div>
+    </footer>
+    <!-- Fahroel : Tombol kembali ke atas (js/navbar.js) -->
+    <button id="topBtn" type="button" aria-label="Kembali ke atas" class="hidden fixed bottom-5 right-5 bg-hijau text-white w-11 h-11 rounded-full shadow-lg text-xl hover:bg-gelap">↑</button>
+    <!-- Fahroel : Menu hamburger + tombol kembali ke atas -->
+    <script src="js/navbar.js"></script>
+    <!-- Anasti : Validasi form relawan -->
+    <script src="js/relawan.js"></script>
+    <!-- Lionel : Accordion FAQ -->
+    <script src="js/faq.js"></script>
+  </body>
+</html>
