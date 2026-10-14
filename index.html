@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="GreenLife adalah komunitas lingkungan untuk kegiatan penghijauan, bank sampah, clean up, dan edukasi." />
+    <title>GreenLife | Bumi lebih hijau, mulai dari kita</title>
+    <!-- Tailwind CSS (CDN) + konfigurasi warna GreenLife -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { hijau: '#14532d', gelap: '#0f3d2e', daun: '#dcf27a', krem: '#f4f8ef' },
+            fontFamily: { sans: ['DM Sans', 'sans-serif'] },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <!-- CSS buatan sendiri (hero, modal, efek tombol) -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="font-sans text-gray-800 bg-white">
+    <!-- Fahroel : Navbar responsif (logo, menu, tombol hamburger) -->
+    <header class="bg-white shadow sticky top-0 z-40">
+      <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between relative" aria-label="Navigasi utama">
+        <a href="index.html" class="flex items-center gap-2 text-xl font-bold text-hijau">
+          <img src="assets/images/LOGO.png" alt="Logo GreenLife" class="h-9 w-9" />
+          green<span class="font-normal">life</span>
+        </a>
+        <button id="menuBtn" type="button" class="md:hidden text-3xl text-hijau" aria-label="Buka menu" aria-expanded="false" aria-controls="menu">☰</button>
+        <ul id="menu" class="hidden md:flex absolute md:static top-full left-0 w-full md:w-auto flex-col md:flex-row md:items-center gap-1 md:gap-6 bg-white p-4 md:p-0 shadow md:shadow-none text-sm font-medium text-gray-700">
+          <li><a href="index.html" class="block py-2 text-hijau font-bold">Beranda</a></li>
+          <li><a href="index.html#tentang" class="block py-2 hover:text-green-600">Tentang</a></li>
+          <li><a href="program.html#program" class="block py-2 hover:text-green-600">Program</a></li>
+          <li><a href="program.html#kegiatan" class="block py-2 hover:text-green-600">Kegiatan</a></li>
+          <li><a href="galeri.html#galeri" class="block py-2 hover:text-green-600">Galeri</a></li>
+          <li><a href="galeri.html#statistik" class="block py-2 hover:text-green-600">Dampak</a></li>
+          <li><a href="gabung.html#faq" class="block py-2 hover:text-green-600">FAQ</a></li>
+          <li><a href="gabung.html#relawan" class="inline-block bg-hijau text-white px-4 py-2 rounded hover:bg-gelap">Gabung</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- Fahroel : Hero / landing page (efek tombol Join Our Movement: Lionel, js/cta.js) -->
+      <section id="home" class="hero text-white">
+        <div class="max-w-6xl mx-auto px-4 py-24 md:py-36">
+          <p class="inline-block bg-green-900/70 border border-green-600 text-sm px-3 py-1 rounded-full mb-5">Komunitas peduli lingkungan</p>
+          <h1 class="text-4xl md:text-6xl font-bold leading-tight max-w-2xl">
+            Bumi lebih hijau.<br /><span class="text-daun">Mulai dari kita.</span>
+          </h1>
+          <p class="mt-5 max-w-xl text-lg text-green-50">
+            Karena perubahan besar dimulai dari langkah kecil. Tanam harapan, kurangi sampah, dan bergerak bersama untuk masa depan bumi.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a href="gabung.html#relawan" id="heroJoin" class="btn-join bg-daun text-gelap font-bold px-6 py-3 rounded shadow-lg hover:scale-105 hover:bg-white transition">Join Our Movement</a>
+            <a href="program.html#program" class="font-semibold underline underline-offset-4 hover:text-daun">Kenali program kami</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fahroel : Section Tentang -->
+      <section id="tentang" class="py-16">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <img src="assets/images/nanam.jpg" alt="Tangan menanam tunas pohon" class="rounded-lg shadow-lg w-full h-80 object-cover" loading="lazy" onerror="this.onerror = null; this.src = 'assets/images/fallback.svg';" />
+          <div>
+            <h2 class="text-3xl font-bold text-gelap">Peduli bumi itu lebih seru bersama.</h2>
+            <p class="mt-4 text-gray-600">GreenLife adalah komunitas lingkungan yang mengajak pelajar, mahasiswa, dan masyarakat umum ikut menjaga bumi lewat aksi nyata.</p>
+            <p class="mt-3 text-gray-600">Dari menanam pohon, memilah sampah, membersihkan lingkungan, hingga belajar gaya hidup berkelanjutan, semua orang bisa mengambil bagian.</p>
+            <a href="program.html#kegiatan" class="inline-block mt-5 font-semibold text-hijau border-b-2 border-hijau hover:text-green-600">Lihat aksi kami</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Fahroel : Footer (kontak + media sosial) -->
+    <footer class="bg-gelap text-gray-200 mt-0">
+      <div class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <a href="index.html" class="flex items-center gap-2 text-xl font-bold text-white">
+            <img src="assets/images/LOGO.png" alt="Logo GreenLife" class="h-9 w-9" />
+            green<span class="font-normal">life</span>
+          </a>
+          <p class="mt-3 text-sm">Gerakan kecil untuk bumi yang lebih baik. Mari tumbuh dan bergerak bersama.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-white mb-3">Jelajahi</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html#tentang" class="hover:text-daun">Tentang</a></li>
+            <li><a href="program.html#program" class="hover:text-daun">Program Kami</a></li>
+            <li><a href="program.html#kegiatan" class="hover:text-daun">Kegiatan</a></li>
+            <li><a href="galeri.html#galeri" class="hover:text-daun">Galeri</a></li>
+            <li><a href="gabung.html#faq" class="hover:text-daun">FAQ</a></li>
+            <li><a href="gabung.html#relawan" class="hover:text-daun">Jadi Relawan</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-white mb-3">Hubungi</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="mailto:hello@greenlife.example" class="hover:text-daun">hello@greenlife.example</a></li>
+            <li><a href="https://wa.me/6281200000000" target="_blank" rel="noopener noreferrer" class="hover:text-daun">WhatsApp: 0812-0000-0000</a></li>
+            <li>Jl. Contoh No. 12, Medan, Sumatera Utara</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-white mb-3">Ikuti Gerakan</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="hover:text-daun">Instagram</a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="hover:text-daun">YouTube</a></li>
+            <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" class="hover:text-daun">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-green-800 text-center text-xs py-4 px-4">
+        © 2026 GreenLife. Dibuat oleh Kelompok Green Forest • Ilmu Komputer USU
+      </div>
+    </footer>
+    <!-- Fahroel : Tombol kembali ke atas (js/navbar.js) -->
+    <button id="topBtn" type="button" aria-label="Kembali ke atas" class="hidden fixed bottom-5 right-5 bg-hijau text-white w-11 h-11 rounded-full shadow-lg text-xl hover:bg-gelap">↑</button>
+    <!-- Fahroel : Menu hamburger + tombol kembali ke atas -->
+    <script src="js/navbar.js"></script>
+    <!-- Lionel : Efek tombol Join Our Movement -->
+    <script src="js/cta.js"></script>
+  </body>
+</html>

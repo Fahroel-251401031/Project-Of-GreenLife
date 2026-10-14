@@ -1,0 +1,495 @@
+
+
+/* Fahroel : Variabel dan pengaturan dasar */
+:root {
+  --hijau: #14532d;
+  --hijau-gelap: #0f3d2e;
+  --hijau-muda: #16a34a;
+  --daun: #dcf27a;
+  --krem: #f4f8ef;
+  --teks: #1f2937;
+  --garis: #d9e5d4;
+  --merah: #dc2626;
+  --bayangan: 0 4px 14px rgba(15, 61, 46, 0.12);
+  --bayangan-besar: 0 10px 28px rgba(15, 61, 46, 0.22);
+  --lengkung: 8px;
+  --cepat: 0.2s;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  color: var(--teks);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+main p {
+  max-width: 68ch;
+}
+
+::selection {
+  background: var(--daun);
+  color: var(--hijau-gelap);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+main a {
+  transition: color var(--cepat);
+}
+
+/* Fahroel : Navbar */
+header {
+  border-bottom: 1px solid var(--garis);
+  backdrop-filter: blur(6px);
+}
+
+#menuBtn {
+  line-height: 1;
+  padding: 2px 8px;
+  border-radius: 6px;
+  transition: background var(--cepat);
+}
+
+#menu {
+  border-top: 1px solid var(--garis);
+}
+#menu li a {
+  transition: color var(--cepat), padding-left var(--cepat);
+}
+
+#menu li:last-child a {
+  transition: background var(--cepat), transform var(--cepat), box-shadow var(--cepat);
+}
+#menu li:last-child a:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--bayangan);
+}
+
+@media (max-width: 767px) {
+  #menu li:not(:last-child) a:hover {
+    padding-left: 8px;
+  }
+  #menu li:last-child a {
+    display: block;
+    text-align: center;
+    margin-top: 6px;
+  }
+}
+
+@media (min-width: 768px) {
+  #menu {
+    border-top: none;
+  }
+}
+
+/* Fahroel : Hero (foto assets/images/bg.jpg) */
+.hero {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(13, 54, 40, 0.95) 0%, rgba(14, 58, 41, 0.8) 45%, rgba(15, 60, 41, 0.35) 100%),
+    url('../assets/images/bg.jpg') center / cover no-repeat #0f3d2e;
+}
+
+.hero p:first-child {
+  backdrop-filter: blur(4px);
+}
+
+.hero h1 {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hero a:not(.btn-join) {
+  transition: color var(--cepat);
+}
+
+/* Lionel : Tombol Join Our Movement (ripple, tekan, denyut) */
+.btn-join {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  letter-spacing: 0.01em;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.btn-join::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(220, 242, 122, 0.7);
+  animation: denyut 2.4s infinite;
+  pointer-events: none;
+}
+@keyframes denyut {
+  70% {
+    box-shadow: 0 0 0 14px rgba(220, 242, 122, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 242, 122, 0);
+  }
+}
+
+.ripple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border-radius: 50%;
+  background: rgba(15, 61, 46, 0.35);
+  pointer-events: none;
+  animation: ripple 0.6s ease-out forwards;
+}
+@keyframes ripple {
+  to {
+    transform: scale(20);
+    opacity: 0;
+  }
+}
+
+.tombol-klik {
+  animation: tekan 0.4s ease;
+}
+@keyframes tekan {
+  50% {
+    transform: scale(0.92);
+  }
+}
+
+/* Fahroel : Section Tentang dan banner halaman */
+main > section:first-child:not(.hero) {
+  background-image: linear-gradient(135deg, var(--hijau-gelap) 0%, var(--hijau) 100%);
+  border-bottom: 4px solid var(--daun);
+}
+
+/* Montela : Kartu program dan kartu kegiatan */
+#program article {
+  border-top: 4px solid transparent;
+  transition: transform var(--cepat), border-color var(--cepat), box-shadow var(--cepat);
+}
+#program article:hover {
+  transform: translateY(-6px);
+  border-top-color: var(--hijau-muda);
+  box-shadow: var(--bayangan-besar);
+}
+
+#program article > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--krem);
+  font-size: 2rem;
+  transition: transform 0.3s;
+}
+#program article:hover > div:first-child {
+  transform: scale(1.12) rotate(-6deg);
+}
+
+.kegiatan-card {
+  border: 1px solid var(--garis);
+  transition: transform var(--cepat), box-shadow var(--cepat);
+}
+.kegiatan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--bayangan-besar);
+}
+
+.kegiatan-card > div:first-child {
+  overflow: hidden;
+}
+.kegiatan-card img {
+  transition: transform 0.5s;
+}
+.kegiatan-card:hover img {
+  transform: scale(1.08);
+}
+
+#pesanKosong {
+  padding: 24px;
+  border: 2px dashed var(--garis);
+  border-radius: var(--lengkung);
+  background: var(--krem);
+}
+
+/* Montela : Filter kategori kegiatan */
+.filter-btn {
+  cursor: pointer;
+  transition: background var(--cepat), color var(--cepat), transform var(--cepat);
+}
+.filter-btn:not(.bg-hijau):hover {
+  background: var(--daun);
+  color: var(--hijau-gelap);
+  transform: translateY(-2px);
+}
+.filter-btn:active {
+  transform: scale(0.95);
+}
+
+/* Montela : Tabel jadwal kegiatan */
+#jadwal table {
+  border-collapse: collapse;
+  min-width: 560px;
+}
+
+#jadwal thead th {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+#jadwal tbody tr {
+  transition: background var(--cepat);
+}
+#jadwal tbody tr:nth-child(even) {
+  background: var(--krem);
+}
+#jadwal tbody tr:hover {
+  background: #e7f3c7;
+}
+
+#jadwal td {
+  vertical-align: middle;
+}
+#jadwal td:nth-child(2) {
+  color: var(--hijau-gelap);
+}
+
+/* Zwinly : Galeri dan modal gambar */
+.galeri-item {
+  cursor: zoom-in;
+  background: #000;
+  box-shadow: var(--bayangan);
+  transition: transform var(--cepat), box-shadow var(--cepat);
+}
+.galeri-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--bayangan-besar);
+}
+
+#modalGambar {
+  backdrop-filter: blur(3px);
+}
+#modalGambar:not(.hidden) {
+  animation: modal-fade 0.25s ease-out;
+}
+#modalGambar:not(.hidden) img {
+  animation: modal-zoom 0.3s ease-out;
+}
+@keyframes modal-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes modal-zoom {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+#gambarBesar {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+#keteranganGambar {
+  font-weight: 500;
+  max-width: none;
+}
+
+#tutupModal {
+  cursor: pointer;
+  transition: transform var(--cepat), background var(--cepat);
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Zwinly : Section statistik dan counter */
+#statistik .grid > div {
+  padding: 20px 8px;
+  border-radius: var(--lengkung);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  transition: transform var(--cepat), background var(--cepat);
+}
+
+.counter {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Anasti : Form Daftar Relawan dan tampilan error validasi */
+#kartuForm {
+  border-top: 5px solid var(--hijau);
+}
+
+#formRelawan label {
+  color: var(--hijau-gelap);
+}
+
+#formRelawan input,
+#formRelawan select {
+  background: #fff;
+  transition: border-color var(--cepat), box-shadow var(--cepat);
+}
+.input-error {
+  border-color: var(--merah) !important;
+  background: #fef2f2 !important;
+}
+.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.25) !important;
+}
+
+#formRelawan p[id^='err'] {
+  min-height: 1.25rem;
+  font-size: 0.8125rem;
+}
+
+#formRelawan button[type='submit'] {
+  cursor: pointer;
+  transition: transform var(--cepat), box-shadow var(--cepat), background var(--cepat);
+}
+
+#pesanForm:not(:empty) {
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: var(--krem);
+  border-left: 4px solid currentColor;
+  animation: modal-fade 0.3s ease-out;
+}
+
+/* Lionel : FAQ accordion */
+.faq-item {
+  transition: background var(--cepat);
+}
+.faq-item.terbuka {
+  background: #fff;
+  border-radius: var(--lengkung);
+  box-shadow: var(--bayangan);
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.faq-tanya {
+  cursor: pointer;
+  transition: color var(--cepat);
+}
+
+.faq-ikon {
+  display: inline-block;
+  width: 28px;
+  text-align: center;
+  transition: transform 0.25s;
+}
+.faq-item.terbuka .faq-ikon {
+  transform: rotate(180deg);
+}
+
+.faq-jawab:not(.hidden) {
+  animation: jawab-turun 0.25s ease-out;
+}
+@keyframes jawab-turun {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fahroel : Footer dan tombol kembali ke atas */
+footer {
+  border-top: 4px solid var(--daun);
+}
+
+footer a {
+  transition: color var(--cepat), padding-left var(--cepat);
+}
+footer ul a:hover {
+  padding-left: 4px;
+}
+
+#topBtn {
+  cursor: pointer;
+  transition: transform var(--cepat), background var(--cepat);
+}
+#topBtn:not(.hidden) {
+  animation: modal-fade 0.3s ease-out;
+}
+#topBtn:hover {
+  transform: translateY(-4px);
+}
+
+/* Lionel : Pengujian responsif (layar HP dan layar lebar) */
+@media (max-width: 767px) {
+  .hero {
+    min-height: 480px;
+    background:
+      linear-gradient(180deg, rgba(13, 54, 40, 0.9) 0%, rgba(13, 54, 40, 0.7) 100%),
+      url('../assets/images/bg.jpg') center / cover no-repeat #0f3d2e;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  #statistik .grid > div {
+    padding: 14px 4px;
+  }
+
+  #kartuForm {
+    padding: 20px;
+  }
+
+  .hero .btn-join {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Lionel : Aksesibilitas (fokus keyboard dan animasi dimatikan jika diminta) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--daun);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
